@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TrailReady ATV Repair — Fast. Local. Trusted.</title>
+  <meta name="description" content="TrailReady ATV Repair — expert ATV, UTV & powersports service. Fast diagnostics, mobile service, parts, and same-week appointments." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --accent:#ff6b00;
+      --muted:#94a3b8;
+      --glass: rgba(255,255,255,0.04);
+      --radius:14px;
+      --container:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background:linear-gradient(180deg,#071020 0%,var(--bg) 100%);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+    .wrap{max-width:var(--container);margin:24px auto;padding:0 20px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:700}
+    .logo{
+      width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#ff9a3d);
+      display:grid;place-items:center;color:#071020;font-weight:800;font-size:20px;box-shadow:0 6px 30px rgba(255,107,0,0.14)
+    }
+    nav{display:flex;gap:18px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;font-weight:600}
+    nav a.cta{background:var(--accent);padding:10px 14px;border-radius:10px;color:#071020}
+    .hero{
+      display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin:28px 0;
+    }
+    .hero-card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:32px;border-radius:var(--radius);backdrop-filter: blur(6px);
+      box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+    }
+    h1{font-size:34px;margin:0 0 10px}
+    p.lead{color:var(--muted);margin:0 0 18px}
+    .badges{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+    .badge{background:var(--glass);padding:8px 10px;border-radius:999px;font-size:13px;color:var(--muted)}
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+    .feature{background:#071226;padding:14px;border-radius:12px;text-align:center;font-size:14px}
+    /* booking form */
+    .book{background:#071226;padding:18px;border-radius:12px}
+    .book label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+    .book input,.book select,.book textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+    .btn{display:inline-block;padding:12px 16px;border-radius:10px;background:var(--accent);color:#071020;font-weight:700;border:none;cursor:pointer}
+    section{margin:26px 0}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .service{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px}
+    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    .gallery img{width:100%;height:140px;object-fit:cover;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
+    .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .test{background:#071226;padding:18px;border-radius:12px}
+    footer{margin-top:28px;padding:18px;border-radius:12px;background:transparent;display:flex;justify-content:space-between;align-items:center;color:var(--muted)}
+    /* responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      .grid-3{grid-template-columns:repeat(2,1fr)}
+      .testimonials{grid-template-columns:1fr}
+      nav{display:none}
+    }
+    @media (max-width:520px){
+      h1{font-size:26px}
+      .logo{width:48px;height:48px;font-size:18px}
+      .gallery img{height:110px}
+    }
+    /* small utilities */
+    .muted{color:var(--muted);font-size:13px}
+    .pill{display:inline-flex;gap:8px;align-items:center;padding:6px 10px;background:#071226;border-radius:999px}
+    .phone{font-weight:800;color:var(--accent)}
+    .nav-toggle{display:none}
+    @media (max-width:980px){.nav-toggle{display:block}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header aria-label="Main header">
+      <div class="brand">
+        <div class="logo">TR</div>
+        <div>
+          <div style="font-size:14px;color:var(--muted)">TrailReady</div>
+          <div style="font-size:12px;color:var(--muted)">ATV Repair & Powersports</div>
+        </div>
+      </div>
+
+      <nav role="navigation" aria-label="Primary navigation">
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#testimonials">Reviews</a>
+        <a href="#contact" class="cta">Book Service</a>
+      </nav>
+
+      <button class="nav-toggle pill" onclick="toggleMobile()" aria-expanded="false" aria-controls="mobileMenu">
+        ☰ Menu
+      </button>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-card">
+          <div class="badges">
+            <span class="badge">Same-week appointments</span>
+            <span class="badge">Mobile service within 25 mi</span>
+            <span class="badge">Genuine OEM parts</span>
+          </div>
+
+          <h1>Fast, reliable ATV & UTV service — get back on the trail</h1>
+          <p class="lead">TrailReady specializes in diagnostics, suspension, engine work, and full rebuilds for ATVs, UTVs, and side-by-sides. Transparent pricing, quick turnarounds, and friendly techs.</p>
+
+          <div class="features" aria-hidden>
+            <div class="feature">
+              <strong>Diagnostics</strong><div class="muted">Computer & hands-on</div>
+            </div>
+            <div class="feature">
+              <strong>Mobile Repair</strong><div class="muted">We come to you</div>
+            </div>
+            <div class="feature">
+              <strong>Custom Builds</strong><div class="muted">Performance tuning</div>
+            </div>
+          </div>
+
+          <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap">
+            <a href="#contact" class="btn">Book Now</a>
+            <a href="#services" style="align-self:center;color:var(--muted);font-weight:700;text-decoration:none">See Services →</a>
+          </div>
+        </div>
+
+        <aside class="book" id="contact" aria-labelledby="bookingTitle">
+          <h3 id="bookingTitle" style="margin:0 0 10px">Schedule a Service</h3>
+          <form id="bookingForm" onsubmit="submitForm(event)">
+            <label for="name">Name</label>
+            <input id="name" name="name" required placeholder="Your full name">
+
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" required placeholder="(555) 555-5555">
+
+            <label for="vehicle">Vehicle</label>
+            <select id="vehicle" name="vehicle">
+              <option>ATV — 2-up</option>
+              <option>UTV — 2-seater</option>
+              <option>UTV — 4-seater</option>
+              <option>Snowmobile</option>
+            </select>
+
+            <label for="service">Service Needed</label>
+            <select id="service" name="service">
+              <option>Diagnostics / Check engine</option>
+              <option>Brake / Suspension</option>
+              <option>Engine repair / Rebuild</option>
+              <option>Tune / Performance</option>
+            </select>
+
+            <label for="notes">Notes</label>
+            <textarea id="notes" rows="3" placeholder="Problem details, preferred days, location"></textarea>
+
+            <div style="margin-top:12px;display:flex;gap:10px;align-items:center;justify-content:space-between">
+              <div>
+                <div class="muted" style="font-size:13px">Estimated first-visit rate</div>
+                <div style="font-weight:800">From $89</div>
+              </div>
+              <button class="btn" type="submit">Request Appointment</button>
+            </div>
+            <div id="formMsg" class="muted" style="margin-top:10px;font-size:13px;display:none"></div>
+          </form>
+        </aside>
+      </section>
+
+      <section id="services" aria-label="Services">
+        <h2 style="margin:0 0 12px">Expert Services</h2>
+        <div class="grid-3">
+          <div class="service">
+            <h3 style="margin:0 0 8px">Engine Diagnostics & Repair</h3>
+            <p class="muted">From sensor checks to full rebuilds — complete diagnostics and transparent quotes.</p>
+          </div>
+          <div class="service">
+            <h3 style="margin:0 0 8px">Suspension & Brakes</h3>
+            <p class="muted">Shocks, springs, brake overhauls, lift kits and track service for performance or trail comfort.</p>
+          </div>
+          <div class="service">
+            <h3 style="margin:0 0 8px">Mobile Field Service</h3>
+            <p class="muted">On-site repairs for breakdowns and trailside assistance within our service area.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" aria-label="Gallery">
+        <h2 style="margin:0 0 12px">Recent Work</h2>
+        <div class="gallery" role="list">
+          <img alt="ATV service 1" src="https://images.unsplash.com/photo-1563729784472-4d1f23f8d2c3?w=1000&q=60&auto=format&fit=crop" />
+          <img alt="UTV tuning" src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1000&q=60&auto=format&fit=crop" />
+          <img alt="suspension work" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=1000&q=60&auto=format&fit=crop" />
+          <img alt="engine rebuild" src="https://images.unsplash.com/photo-1549921296-3a7a0d67f2d5?w=1000&q=60&auto=format&fit=crop" />
+        </div>
+        <div style="margin-top:12px" class="muted">High-res before/after photos available on request.</div>
+      </section>
+
+      <section aria-label="Testimonials">
+        <h2 style="margin:0 0 12px">What riders say</h2>
+        <div class="testimonials">
+          <div class="test">
+            <strong>Jamie R.</strong>
+            <p class="muted">"Saved our weekend — mobile tech arrived and fixed a clogged carb. Honest pricing and fast."</p>
+          </div>
+          <div class="test">
+            <strong>Marcus F.</strong>
+            <p class="muted">"Rebuilt my engine and tuned it for trail climbing — runs better than new."</p>
+          </div>
+          <div class="test">
+            <strong>Amy C.</strong>
+            <p class="muted">"Friendly staff and clear communication. Highly recommend TrailReady for any powersports work."</p>
+          </div>
+        </div>
+      </section>
+
+      <section aria-label="Contact & Info">
+        <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap;justify-content:space-between">
+          <div style="flex:1;min-width:240px">
+            <h3 style="margin:0 0 8px">Contact</h3>
+            <div class="muted">Phone: <span class="phone">(555) 987-1234</span></div>
+            <div class="muted">Address: 2100 Ridge Rd, Trail Town, ST 12345</div>
+            <div class="muted" style="margin-top:8px">Hours: Mon–Fri 8am–6pm · Sat 9am–2pm</div>
+          </div>
+          <div style="flex:1;min-width:260px">
+            <h3 style="margin:0 0 8px">Get a Quote</h3>
+            <form onsubmit="quote(event)" id="quoteForm">
+              <div style="display:flex;gap:8px">
+                <input required placeholder="Email or phone" style="flex:1;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit">
+                <button class="btn" type="submit">Send</button>
+              </div>
+            </form>
+            <div id="quoteMsg" class="muted" style="margin-top:8px;display:none"></div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div class="muted">© <span id="year"></span> TrailReady ATV Repair · Built for riders</div>
+      <div class="muted">Follow us • IG / FB / TikTok</div>
+    </footer>
+  </div>
+
+  <script>
+    // small interactivity: mobile toggle, forms
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function toggleMobile(){
+      const nav = document.querySelector('nav');
+      const btn = document.querySelector('.nav-toggle');
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      if(nav.style.display === 'flex') nav.style.display = 'none';
+      else nav.style.display = 'flex';
+      nav.style.flexDirection = 'column';
+      nav.style.position = 'absolute';
+      nav.style.right = '20px';
+      nav.style.top = '80px';
+      nav.style.background = 'rgba(7,18,32,0.98)';
+      nav.style.padding = '12px';
+      nav.style.borderRadius = '12px';
+      nav.style.boxShadow = '0 12px 40px rgba(2,6,23,0.6)';
+    }
+
+    function submitForm(e){
+      e.preventDefault();
+      const msg = document.getElementById('formMsg');
+      msg.style.display = 'block';
+      msg.textContent = 'Thanks! We received your request — we will call within 1 business day to confirm.';
+      // simulate form reset
+      e.target.reset();
+      setTimeout(()=> msg.style.display='none',5000);
+    }
+
+    function quote(e){
+      e.preventDefault();
+      const msg = document.getElementById('quoteMsg');
+      msg.style.display = 'block';
+      msg.textContent = 'Quote request sent — we will reach out within 24 hours.';
+      e.target.reset();
+      setTimeout(()=>msg.style.display='none',5000);
+    }
+
+    // simple progressive image fallback: if image fails, replace with colored placeholder
+    document.querySelectorAll('.gallery img').forEach(img=>{
+      img.onerror = ()=> {
+        img.style.background = 'linear-gradient(135deg,#0f1724,#071226)';
+        img.src = '';
+      }
+    });
+  </script>
+</body>
+</html>
