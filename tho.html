@@ -3,304 +3,287 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>TrailReady ATV Repair — Fast. Local. Trusted.</title>
-  <meta name="description" content="TrailReady ATV Repair — expert ATV, UTV & powersports service. Fast diagnostics, mobile service, parts, and same-week appointments." />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <title>GearHead Auto — Quality Auto Repair</title>
+  <meta name="description" content="GearHead Auto — full-service auto repair, diagnostics, brakes, oil changes, and tune-ups. Fast, honest, locally-owned." />
+  <meta name="theme-color" content="#0b4b6f" />
+
+  <!-- JSON-LD LocalBusiness (replace placeholders) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutoRepair",
+    "name": "GearHead Auto",
+    "image": "https://example.com/garage-front.jpg",
+    "@id": "https://gearheadauto.example.com",
+    "url": "https://gearheadauto.example.com",
+    "telephone": "+1-555-123-4567",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "123 Main St",
+      "addressLocality": "Anytown",
+      "addressRegion": "TX",
+      "postalCode": "00000",
+      "addressCountry": "US"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 30.0, "longitude": -97.0 },
+    "openingHoursSpecification": [
+      {"@type": "OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"17:30"},
+      {"@type": "OpeningHoursSpecification","dayOfWeek":["Saturday"],"opens":"08:00","closes":"12:00"}
+    ],
+    "priceRange": "$$"
+  }
+  </script>
+
   <style>
+    /* Simple responsive CSS */
     :root{
-      --bg:#0f1724;
-      --card:#0b1220;
-      --accent:#ff6b00;
-      --muted:#94a3b8;
-      --glass: rgba(255,255,255,0.04);
-      --radius:14px;
-      --container:1100px;
+      --brand:#0b4b6f; --accent:#ef6c00; --muted:#6b7280; --card:#ffffff;
+      --maxw:1100px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     }
     *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
-      background:linear-gradient(180deg,#071020 0%,var(--bg) 100%);
-      color:#e6eef8;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.45;
+    body{margin:0;background:#f6f8fa;color:#111;line-height:1.45}
+    .container{max-width:var(--maxw);margin:0 auto;padding:0 1rem}
+    header{background:linear-gradient(90deg,var(--brand),#0a3955);color:white}
+    .topbar{display:flex;align-items:center;justify-content:space-between;padding:.6rem 0}
+    .logo{display:flex;gap:.6rem;align-items:center}
+    .logo img{height:44px;width:44px;object-fit:cover;border-radius:6px}
+    nav{display:none}
+    .actions{display:flex;gap:.5rem;align-items:center}
+    .btn{background:var(--accent);border:none;color:white;padding:.6rem .9rem;border-radius:6px;cursor:pointer}
+    .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,.2)}
+    .hero{display:grid;grid-template-columns:1fr;gap:1rem;padding:2.2rem 0}
+    .hero .copy h1{margin:.2rem 0;font-size:1.9rem}
+    .hero .copy p{color:var(--muted);margin:0 0 1rem}
+    .card{background:var(--card);padding:1rem;border-radius:10px;box-shadow:0 6px 20px rgba(11,75,111,.06)}
+    .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:1rem 0}
+    .service{padding:1rem;border-radius:8px;border:1px solid #eee}
+    .grid-2{display:grid;grid-template-columns:1fr 340px;gap:1rem}
+    .testimonials{display:flex;flex-direction:column;gap:1rem}
+    footer{background:#081b28;color:#cfe8ff;padding:1.2rem 0;margin-top:2rem}
+    .map{height:240px;background:#e9eef3;border-radius:8px}
+    /* responsive nav */
+    .hamburger{display:inline-block;padding:.4rem;border-radius:6px;background:rgba(255,255,255,.08)}
+    @media(min-width:880px){
+      nav{display:block}
+      .hero{grid-template-columns:1fr 420px}
+      .hamburger{display:none}
+      .topbar{padding:1rem 0}
     }
-    .wrap{max-width:var(--container);margin:24px auto;padding:0 20px}
-    header{display:flex;align-items:center;justify-content:space-between;gap:12px}
-    .brand{display:flex;align-items:center;gap:12px;font-weight:700}
-    .logo{
-      width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#ff9a3d);
-      display:grid;place-items:center;color:#071020;font-weight:800;font-size:20px;box-shadow:0 6px 30px rgba(255,107,0,0.14)
-    }
-    nav{display:flex;gap:18px;align-items:center}
-    nav a{color:var(--muted);text-decoration:none;font-weight:600}
-    nav a.cta{background:var(--accent);padding:10px 14px;border-radius:10px;color:#071020}
-    .hero{
-      display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin:28px 0;
-    }
-    .hero-card{
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      padding:32px;border-radius:var(--radius);backdrop-filter: blur(6px);
-      box-shadow: 0 8px 30px rgba(2,6,23,0.6);
-    }
-    h1{font-size:34px;margin:0 0 10px}
-    p.lead{color:var(--muted);margin:0 0 18px}
-    .badges{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
-    .badge{background:var(--glass);padding:8px 10px;border-radius:999px;font-size:13px;color:var(--muted)}
-    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
-    .feature{background:#071226;padding:14px;border-radius:12px;text-align:center;font-size:14px}
-    /* booking form */
-    .book{background:#071226;padding:18px;border-radius:12px}
-    .book label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
-    .book input,.book select,.book textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
-    .btn{display:inline-block;padding:12px 16px;border-radius:10px;background:var(--accent);color:#071020;font-weight:700;border:none;cursor:pointer}
-    section{margin:26px 0}
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .service{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px}
-    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-    .gallery img{width:100%;height:140px;object-fit:cover;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
-    .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-    .test{background:#071226;padding:18px;border-radius:12px}
-    footer{margin-top:28px;padding:18px;border-radius:12px;background:transparent;display:flex;justify-content:space-between;align-items:center;color:var(--muted)}
-    /* responsive */
-    @media (max-width:980px){
-      .hero{grid-template-columns:1fr}
-      .gallery{grid-template-columns:repeat(2,1fr)}
-      .grid-3{grid-template-columns:repeat(2,1fr)}
-      .testimonials{grid-template-columns:1fr}
-      nav{display:none}
-    }
-    @media (max-width:520px){
-      h1{font-size:26px}
-      .logo{width:48px;height:48px;font-size:18px}
-      .gallery img{height:110px}
-    }
-    /* small utilities */
-    .muted{color:var(--muted);font-size:13px}
-    .pill{display:inline-flex;gap:8px;align-items:center;padding:6px 10px;background:#071226;border-radius:999px}
-    .phone{font-weight:800;color:var(--accent)}
-    .nav-toggle{display:none}
-    @media (max-width:980px){.nav-toggle{display:block}}
+    /* small helpers */
+    .muted{color:var(--muted)}
+    .kicker{font-size:.82rem;color:var(--accent);font-weight:600;text-transform:uppercase}
+    .hours dt{font-weight:600}
+    .contact-form input,.contact-form textarea{width:100%;padding:.6rem;border:1px solid #e1e6eb;border-radius:6px;margin:.4rem 0}
+    .cta-big{display:inline-block;background:var(--accent);color:white;padding:.9rem 1.2rem;border-radius:8px;font-weight:700}
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header aria-label="Main header">
-      <div class="brand">
-        <div class="logo">TR</div>
+  <header>
+    <div class="container topbar" role="banner">
+      <div class="logo" aria-label="GearHead Auto logo">
+        <img src="https://via.placeholder.com/120x120.png?text=GH" alt="GearHead Auto logo">
         <div>
-          <div style="font-size:14px;color:var(--muted)">TrailReady</div>
-          <div style="font-size:12px;color:var(--muted)">ATV Repair & Powersports</div>
+          <div style="font-weight:700">GearHead Auto</div>
+          <div style="font-size:.9rem;color:rgba(255,255,255,.85)">Honest repairs • Fast turnarounds</div>
         </div>
       </div>
 
-      <nav role="navigation" aria-label="Primary navigation">
-        <a href="#services">Services</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#testimonials">Reviews</a>
-        <a href="#contact" class="cta">Book Service</a>
+      <nav aria-label="Main navigation">
+        <a href="#services" style="color:white;margin-right:1rem">Services</a>
+        <a href="#about" style="color:white;margin-right:1rem">About</a>
+        <a href="#contact" style="color:white;margin-right:1rem">Contact</a>
       </nav>
 
-      <button class="nav-toggle pill" onclick="toggleMobile()" aria-expanded="false" aria-controls="mobileMenu">
-        ☰ Menu
-      </button>
-    </header>
+      <div class="actions">
+        <a class="btn" href="tel:+15551234567" aria-label="Call us">Call: (555) 123-4567</a>
+        <button class="hamburger" aria-expanded="false" aria-controls="mobileMenu">☰</button>
+      </div>
+    </div>
 
-    <main>
-      <section class="hero">
-        <div class="hero-card">
-          <div class="badges">
-            <span class="badge">Same-week appointments</span>
-            <span class="badge">Mobile service within 25 mi</span>
-            <span class="badge">Genuine OEM parts</span>
-          </div>
+    <div class="container hero" role="region" aria-label="Hero section">
+      <div class="copy card">
+        <div class="kicker">Full-Service Auto Repair</div>
+        <h1>Fast, dependable repairs — get back on the road today</h1>
+        <p class="muted">From diagnostics and brakes to engine repairs and pre-trip inspections. Certified technicians, transparent pricing, and a free vehicle health check with every service.</p>
 
-          <h1>Fast, reliable ATV & UTV service — get back on the trail</h1>
-          <p class="lead">TrailReady specializes in diagnostics, suspension, engine work, and full rebuilds for ATVs, UTVs, and side-by-sides. Transparent pricing, quick turnarounds, and friendly techs.</p>
-
-          <div class="features" aria-hidden>
-            <div class="feature">
-              <strong>Diagnostics</strong><div class="muted">Computer & hands-on</div>
-            </div>
-            <div class="feature">
-              <strong>Mobile Repair</strong><div class="muted">We come to you</div>
-            </div>
-            <div class="feature">
-              <strong>Custom Builds</strong><div class="muted">Performance tuning</div>
-            </div>
-          </div>
-
-          <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap">
-            <a href="#contact" class="btn">Book Now</a>
-            <a href="#services" style="align-self:center;color:var(--muted);font-weight:700;text-decoration:none">See Services →</a>
-          </div>
+        <div style="display:flex;gap:.6rem;flex-wrap:wrap">
+          <a class="cta-big" href="#booking">Book Online</a>
+          <a class="btn secondary" href="#services">Our Services</a>
         </div>
 
-        <aside class="book" id="contact" aria-labelledby="bookingTitle">
-          <h3 id="bookingTitle" style="margin:0 0 10px">Schedule a Service</h3>
-          <form id="bookingForm" onsubmit="submitForm(event)">
-            <label for="name">Name</label>
-            <input id="name" name="name" required placeholder="Your full name">
+        <ul style="margin-top:1rem;color:var(--muted);font-size:.95rem">
+          <li><strong>Same-day diagnostics</strong> &amp; transparent estimates</li>
+          <li><strong>ASE-certified techs</strong> and warranty on repairs</li>
+        </ul>
+      </div>
 
-            <label for="phone">Phone</label>
-            <input id="phone" name="phone" required placeholder="(555) 555-5555">
+      <div class="card" aria-hidden="false">
+        <strong>Quick info</strong>
+        <p class="muted" style="margin:0.4rem 0">Open Mon–Fri 8:00–17:30 · Sat 8:00–12:00</p>
+        <p style="margin:.4rem 0"><a href="https://maps.google.com" target="_blank" rel="noopener">123 Main St, Anytown</a></p>
+        <p style="margin:.4rem 0"><a href="#contact">Request a quote</a></p>
+        <div style="margin-top:1rem">
+          <a class="btn" href="#booking">Book an Appointment</a>
+        </div>
+      </div>
+    </div>
+  </header>
 
-            <label for="vehicle">Vehicle</label>
-            <select id="vehicle" name="vehicle">
-              <option>ATV — 2-up</option>
-              <option>UTV — 2-seater</option>
-              <option>UTV — 4-seater</option>
-              <option>Snowmobile</option>
-            </select>
+  <main class="container" id="main">
+    <!-- Services -->
+    <section id="services" style="margin-top:1.2rem">
+      <h2>Our Services</h2>
+      <p class="muted">Comprehensive services for cars, trucks, and SUVs.</p>
+      <div class="services" role="list">
+        <article class="service" role="listitem">
+          <h3>Diagnostics & Check Engine</h3>
+          <p class="muted">Computer diagnostics, code repair, and test drives.</p>
+        </article>
+        <article class="service" role="listitem">
+          <h3>Brakes & Suspension</h3>
+          <p class="muted">Pads, rotors, shocks, alignments.</p>
+        </article>
+        <article class="service" role="listitem">
+          <h3>Oil & Fluid Services</h3>
+          <p class="muted">Oil changes, transmission fluid, coolant flushes.</p>
+        </article>
+        <article class="service" role="listitem">
+          <h3>Engine & Transmission</h3>
+          <p class="muted">Repairs, rebuilds, and maintenance.</p>
+        </article>
+      </div>
+    </section>
 
-            <label for="service">Service Needed</label>
-            <select id="service" name="service">
-              <option>Diagnostics / Check engine</option>
-              <option>Brake / Suspension</option>
-              <option>Engine repair / Rebuild</option>
-              <option>Tune / Performance</option>
-            </select>
+    <!-- Two column area: About + Contact -->
+    <section style="margin-top:1rem" id="about">
+      <div class="grid-2">
+        <div class="card">
+          <h2>About GearHead Auto</h2>
+          <p class="muted">Locally owned since 2005. We prioritize honest diagnostics, fair pricing, and long-lasting repairs. Our team includes ASE-certified technicians and specialists in late-model diagnostics.</p>
+          <h4>Why choose us</h4>
+          <ul class="muted">
+            <li>Warranty on repairs</li>
+            <li>Courtesy vehicle shuttle</li>
+            <li>OEM & aftermarket parts</li>
+          </ul>
+        </div>
 
-            <label for="notes">Notes</label>
-            <textarea id="notes" rows="3" placeholder="Problem details, preferred days, location"></textarea>
+        <aside class="card" aria-labelledby="contact-heading">
+          <h3 id="contact-heading">Contact & Hours</h3>
+          <address style="font-style:normal" class="muted">
+            <strong>GearHead Auto</strong><br>
+            123 Main St, Anytown, TX 00000<br>
+            <a href="tel:+15551234567"> (555) 123-4567</a>
+          </address>
 
-            <div style="margin-top:12px;display:flex;gap:10px;align-items:center;justify-content:space-between">
-              <div>
-                <div class="muted" style="font-size:13px">Estimated first-visit rate</div>
-                <div style="font-weight:800">From $89</div>
-              </div>
-              <button class="btn" type="submit">Request Appointment</button>
-            </div>
-            <div id="formMsg" class="muted" style="margin-top:10px;font-size:13px;display:none"></div>
-          </form>
+          <dl class="hours muted">
+            <dt>Mon–Fri</dt><dd>8:00 – 17:30</dd>
+            <dt>Saturday</dt><dd>8:00 – 12:00</dd>
+            <dt>Sunday</dt><dd>Closed</dd>
+          </dl>
+
+          <div style="margin-top:.6rem">
+            <a class="btn" href="#booking">Book Appointment</a>
+          </div>
         </aside>
-      </section>
+      </div>
+    </section>
 
-      <section id="services" aria-label="Services">
-        <h2 style="margin:0 0 12px">Expert Services</h2>
-        <div class="grid-3">
-          <div class="service">
-            <h3 style="margin:0 0 8px">Engine Diagnostics & Repair</h3>
-            <p class="muted">From sensor checks to full rebuilds — complete diagnostics and transparent quotes.</p>
+    <!-- Pricing / Quick estimate -->
+    <section style="margin-top:1rem">
+      <h2>Typical Prices</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem">
+        <div class="card"><strong>Oil Change</strong><p class="muted">$39.99 — Synthetic extra</p></div>
+        <div class="card"><strong>Brake Pads</strong><p class="muted">From $149 — per axle</p></div>
+        <div class="card"><strong>Diagnostics</strong><p class="muted">$79 (applied to repair)</p></div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section aria-label="Customer testimonials" style="margin-top:1rem">
+      <h2>What customers say</h2>
+      <div class="testimonials">
+        <blockquote class="card">
+          <strong>John D.</strong>
+          <p class="muted">“Quick, honest, and fair pricing. Fixed my brake issue the same day.”</p>
+        </blockquote>
+        <blockquote class="card">
+          <strong>Maria S.</strong>
+          <p class="muted">“The team walked me through the problem and the options — no surprise fees.”</p>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- Contact & Map -->
+    <section id="contact" style="margin-top:1rem;margin-bottom:2rem">
+      <h2>Request a Quote / Contact</h2>
+      <div class="grid-2">
+        <form class="card contact-form" action="#" method="post" onsubmit="return validateContact(event)">
+          <label for="name">Full name</label>
+          <input id="name" name="name" type="text" required>
+
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" type="tel" required>
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email">
+
+          <label for="service">Service interested in</label>
+          <input id="service" name="service" type="text">
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4"></textarea>
+
+          <div style="display:flex;gap:.6rem;margin-top:.6rem">
+            <button class="btn" type="submit">Send Request</button>
+            <a class="btn secondary" href="tel:+15551234567">Call Now</a>
           </div>
-          <div class="service">
-            <h3 style="margin:0 0 8px">Suspension & Brakes</h3>
-            <p class="muted">Shocks, springs, brake overhauls, lift kits and track service for performance or trail comfort.</p>
-          </div>
-          <div class="service">
-            <h3 style="margin:0 0 8px">Mobile Field Service</h3>
-            <p class="muted">On-site repairs for breakdowns and trailside assistance within our service area.</p>
-          </div>
+        </form>
+
+        <div class="card">
+          <h3>Find us</h3>
+          <!-- Replace the src with your Google Maps embed link -->
+          <iframe class="map" loading="lazy"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d..."></iframe>
+
+          <p class="muted" style="margin-top:.6rem">We offer shuttle service and loaner cars (by appointment).</p>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="gallery" aria-label="Gallery">
-        <h2 style="margin:0 0 12px">Recent Work</h2>
-        <div class="gallery" role="list">
-          <img alt="ATV service 1" src="https://images.unsplash.com/photo-1563729784472-4d1f23f8d2c3?w=1000&q=60&auto=format&fit=crop" />
-          <img alt="UTV tuning" src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1000&q=60&auto=format&fit=crop" />
-          <img alt="suspension work" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=1000&q=60&auto=format&fit=crop" />
-          <img alt="engine rebuild" src="https://images.unsplash.com/photo-1549921296-3a7a0d67f2d5?w=1000&q=60&auto=format&fit=crop" />
-        </div>
-        <div style="margin-top:12px" class="muted">High-res before/after photos available on request.</div>
-      </section>
+  </main>
 
-      <section aria-label="Testimonials">
-        <h2 style="margin:0 0 12px">What riders say</h2>
-        <div class="testimonials">
-          <div class="test">
-            <strong>Jamie R.</strong>
-            <p class="muted">"Saved our weekend — mobile tech arrived and fixed a clogged carb. Honest pricing and fast."</p>
-          </div>
-          <div class="test">
-            <strong>Marcus F.</strong>
-            <p class="muted">"Rebuilt my engine and tuned it for trail climbing — runs better than new."</p>
-          </div>
-          <div class="test">
-            <strong>Amy C.</strong>
-            <p class="muted">"Friendly staff and clear communication. Highly recommend TrailReady for any powersports work."</p>
-          </div>
-        </div>
-      </section>
-
-      <section aria-label="Contact & Info">
-        <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap;justify-content:space-between">
-          <div style="flex:1;min-width:240px">
-            <h3 style="margin:0 0 8px">Contact</h3>
-            <div class="muted">Phone: <span class="phone">(555) 987-1234</span></div>
-            <div class="muted">Address: 2100 Ridge Rd, Trail Town, ST 12345</div>
-            <div class="muted" style="margin-top:8px">Hours: Mon–Fri 8am–6pm · Sat 9am–2pm</div>
-          </div>
-          <div style="flex:1;min-width:260px">
-            <h3 style="margin:0 0 8px">Get a Quote</h3>
-            <form onsubmit="quote(event)" id="quoteForm">
-              <div style="display:flex;gap:8px">
-                <input required placeholder="Email or phone" style="flex:1;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit">
-                <button class="btn" type="submit">Send</button>
-              </div>
-            </form>
-            <div id="quoteMsg" class="muted" style="margin-top:8px;display:none"></div>
-          </div>
-        </div>
-      </section>
-
-    </main>
-
-    <footer>
-      <div class="muted">© <span id="year"></span> TrailReady ATV Repair · Built for riders</div>
-      <div class="muted">Follow us • IG / FB / TikTok</div>
-    </footer>
-  </div>
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap">
+      <div>© <strong>GearHead Auto</strong> <span id="year"></span> · <span class="muted">ASE-Certified Technicians</span></div>
+      <div class="muted">Follow: <a href="#" style="color:inherit;text-decoration:underline">Facebook</a> · <a href="#" style="color:inherit;text-decoration:underline">Instagram</a></div>
+    </div>
+  </footer>
 
   <script>
-    // small interactivity: mobile toggle, forms
+    // Small UI behavior
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    function toggleMobile(){
-      const nav = document.querySelector('nav');
-      const btn = document.querySelector('.nav-toggle');
-      const expanded = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', String(!expanded));
-      if(nav.style.display === 'flex') nav.style.display = 'none';
-      else nav.style.display = 'flex';
-      nav.style.flexDirection = 'column';
-      nav.style.position = 'absolute';
-      nav.style.right = '20px';
-      nav.style.top = '80px';
-      nav.style.background = 'rgba(7,18,32,0.98)';
-      nav.style.padding = '12px';
-      nav.style.borderRadius = '12px';
-      nav.style.boxShadow = '0 12px 40px rgba(2,6,23,0.6)';
-    }
-
-    function submitForm(e){
-      e.preventDefault();
-      const msg = document.getElementById('formMsg');
-      msg.style.display = 'block';
-      msg.textContent = 'Thanks! We received your request — we will call within 1 business day to confirm.';
-      // simulate form reset
-      e.target.reset();
-      setTimeout(()=> msg.style.display='none',5000);
-    }
-
-    function quote(e){
-      e.preventDefault();
-      const msg = document.getElementById('quoteMsg');
-      msg.style.display = 'block';
-      msg.textContent = 'Quote request sent — we will reach out within 24 hours.';
-      e.target.reset();
-      setTimeout(()=>msg.style.display='none',5000);
-    }
-
-    // simple progressive image fallback: if image fails, replace with colored placeholder
-    document.querySelectorAll('.gallery img').forEach(img=>{
-      img.onerror = ()=> {
-        img.style.background = 'linear-gradient(135deg,#0f1724,#071226)';
-        img.src = '';
-      }
+    // mobile menu (very small)
+    const hamb = document.querySelector('.hamburger');
+    hamb?.addEventListener('click', () => {
+      const expanded = hamb.getAttribute('aria-expanded') === 'true';
+      hamb.setAttribute('aria-expanded', String(!expanded));
+      alert('For mobile, use the menu links (this demo has a minimal placeholder).');
     });
+
+    // Basic form validation (example)
+    function validateContact(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      if(!name || !phone){ alert('Please enter name and phone.'); return false; }
+      // In production: send via AJAX to your backend or a serverless function.
+      alert('Thanks! Your request was submitted (demo).');
+      e.target.reset();
+      return false;
+    }
   </script>
 </body>
 </html>
